@@ -1,0 +1,133 @@
+-- By REX JUDO
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrameRadar = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
+local PageButton = Instance.new("TextButton")
+local TextLabel_2 = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local GenButton = Instance.new("TextButton")
+local TextLabel_3 = Instance.new("TextLabel")
+local UICorner_4 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainFrameRadar.Name = "MainFrameRadar"
+MainFrameRadar.Parent = ScreenGui
+MainFrameRadar.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
+MainFrameRadar.BackgroundTransparency = 0.750
+MainFrameRadar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MainFrameRadar.BorderSizePixel = 8
+MainFrameRadar.Position = UDim2.new(0.619393945, 0, 0.355184734, 0)
+MainFrameRadar.Size = UDim2.new(0, 289, 0, 255)
+MainFrameRadar.Draggable = true
+MainFrameRadar.Selectable = true
+MainFrameRadar.Active = true
+UICorner.Parent = MainFrameRadar
+
+TextLabel.Parent = MainFrameRadar
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.020
+TextLabel.Size = UDim2.new(0, 289, 0, 50)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Radars"
+TextLabel.TextColor3 = Color3.fromRGB(162, 162, 162)
+TextLabel.TextSize = 43.000
+
+UICorner_2.Parent = TextLabel
+
+PageButton.Name = "PageButton"
+PageButton.Parent = MainFrameRadar
+PageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PageButton.BorderSizePixel = 4
+PageButton.Position = UDim2.new(0.0311418697, 0, 0.194739357, 0)
+PageButton.Size = UDim2.new(0, 36, 0, 36)
+PageButton.Font = Enum.Font.SourceSans
+PageButton.Text = ""
+PageButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+PageButton.TextSize = 14.000
+PageButton.MouseButton1Down:connect(function()
+	for i,v in pairs(game.Workspace:GetDescendants()) do -- grabs everything from workspace
+		if v.ClassName == 'Part' and v.Name == 'Page' or v.Name == 'HPageSpawn' then-- checks if it has a handle and if its a touchtransmitter
+			local BillboardGui = Instance.new('BillboardGui') -- Makes Billboardgui
+			local TextLabel = Instance.new('TextLabel') -- makes text label
+
+			BillboardGui.Parent = (v) -- what the billboardgui goes into
+			BillboardGui.AlwaysOnTop = true -- if its on top or not
+			BillboardGui.Size = UDim2.new(0, 50, 0, 50) -- size of it
+			BillboardGui.StudsOffset = Vector3.new(0,2,0)
+			BillboardGui.Name = 'PageRadar'
+
+			TextLabel.Parent = BillboardGui -- putting textlabel into billboardgui
+			TextLabel.BackgroundColor3 = Color3.new(1,1,1) -- color
+			TextLabel.BackgroundTransparency = 0 -- transparency
+			TextLabel.Size = UDim2.new(1, 0, 1, 0) -- size
+			TextLabel.Text = 'Page'-- what the label says
+			TextLabel.TextColor3 = Color3.new(0, 0, 0) -- color
+			TextLabel.TextScaled = true -- if the text is scaled or not
+			TextLabel.BorderSizePixel = 6
+		end
+	end
+end)
+
+TextLabel_2.Parent = MainFrameRadar
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.020
+TextLabel_2.Position = UDim2.new(0.0311418679, 0, 0.164705887, 0)
+TextLabel_2.Size = UDim2.new(0, 289, 0, 50)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Page Radar"
+TextLabel_2.TextColor3 = Color3.fromRGB(162, 162, 162)
+TextLabel_2.TextSize = 43.000
+
+UICorner_3.Parent = TextLabel_2
+
+GenButton.Name = "GenButton"
+GenButton.Parent = MainFrameRadar
+GenButton.BackgroundColor3 = Color3.fromRGB(85, 170, 0)
+GenButton.BorderSizePixel = 4
+GenButton.Position = UDim2.new(0.0311418697, 0, 0.426111907, 0)
+GenButton.Size = UDim2.new(0, 36, 0, 36)
+GenButton.Font = Enum.Font.SourceSans
+GenButton.Text = ""
+GenButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+GenButton.TextSize = 14.000
+GenButton.MouseButton1Down:connect(function()
+	for i,v in pairs(game.Workspace:GetDescendants()) do -- grabs everything from workspace
+		if v.ClassName == 'Model' and v.Name == 'g1' or v.Name == 'g2' or v.Name == 'g3' then-- checks if it has a handle and if its a touchtransmitter
+			local BillboardGui = Instance.new('BillboardGui') -- Makes Billboardgui
+			local TextLabel = Instance.new('TextLabel') -- makes text label
+
+			BillboardGui.Parent = (v) -- what the billboardgui goes into
+			BillboardGui.AlwaysOnTop = true -- if its on top or not
+			BillboardGui.Size = UDim2.new(0, 50, 0, 50) -- size of it
+			BillboardGui.StudsOffset = Vector3.new(0,2,0)
+			BillboardGui.Name = 'GenRadar'
+
+			TextLabel.Parent = BillboardGui -- putting textlabel into billboardgui
+			TextLabel.BackgroundColor3 = Color3.new(0, 10, 0) -- color
+			TextLabel.BackgroundTransparency = 0 -- transparency
+			TextLabel.Size = UDim2.new(1, 0, 1, 0) -- size
+			TextLabel.Text = 'Gen'-- what the label says
+			TextLabel.TextColor3 = Color3.new(0, 0, 0) -- color
+			TextLabel.TextScaled = true -- if the text is scaled or not
+			TextLabel.BorderSizePixel = 6
+		end
+	end
+end)
+
+TextLabel_3.Parent = MainFrameRadar
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.020
+TextLabel_3.Position = UDim2.new(0.0311418679, 0, 0.396078438, 0)
+TextLabel_3.Size = UDim2.new(0, 289, 0, 50)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "Gen Radar"
+TextLabel_3.TextColor3 = Color3.fromRGB(162, 162, 162)
+TextLabel_3.TextSize = 43.000
+
+UICorner_4.Parent = TextLabel_3
